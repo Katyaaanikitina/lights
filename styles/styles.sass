@@ -1,0 +1,59 @@
+body
+    // background: black
+    margin: 0px
+
+.Container
+    width: 100%
+    height: auto
+    display: flex
+    justify-content: center
+
+.Lights
+    position: fixed
+    display: flex
+    justify-content: center
+
+
+.Bulb
+    position: relative
+    display: flex
+    justify-content: center
+    top: -5px
+    box-sizing: border-box
+    width: 15px
+    height: 40px
+    background: #ffc36d
+    margin: 10px 20px 0px 20px
+    border-radius: 50%
+    box-shadow: 1px 3px 10px #ffc36d, -1px 3px 10px #ffc36d
+
+    &::before
+        content: ''
+        position: absolute
+        display: inline-block
+        text-align: center
+        box-sizing: border-box
+        top: -5px
+        width: 15px
+        height: 10px
+        background: #464646
+        border-radius: 2px
+        border-bottom: solid 2px #2a2a2a
+
+    &::after
+        content: ''
+        position: absolute
+        left: 5px
+        top: -30px
+        background: transparent
+        border-bottom: solid 3px #464646
+        width: 60px
+        height: 30px
+        border-radius: 50%
+
+    &:last-child::after
+        width: 0px
+        
+
+
+    
