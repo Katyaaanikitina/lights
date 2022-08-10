@@ -27,19 +27,27 @@ body
 
     &:nth-child(4n+1)
         background: #E3170AFF
+        opacity: 1
         box-shadow: 1px 3px 10px #E3170AFF, -1px 3px 10px #E3170AFF
+        animation: bulb-pulse-1 2s linear 0s infinite alternate
 
     &:nth-child(4n-2)
         background: #A9E5BBFF
+        opacity: 0.1
         box-shadow: 1px 3px 10px #A9E5BBFF, -1px 3px 10px #A9E5BBFF
+        animation: bulb-pulse-2 2s linear 4s infinite alternate
 
     &:nth-child(4n+3)
         background: #FCF6B1FF
+        opacity: 1
         box-shadow: 1px 3px 10px #FCF6B1FF, -1px 3px 10px #FCF6B1FF
+        animation: bulb-pulse-3 2s linear 0s infinite alternate
     
     &:nth-child(4n+4)
         background: #F7B32BFF
+        opacity: 0.1
         box-shadow: 1px 3px 10px #F7B32BFF, -1px 3px 10px #F7B32BFF
+        animation: bulb-pulse-4 2s linear 4s infinite alternate
 
     &::before
         content: ''
@@ -68,7 +76,34 @@ body
     &:last-child::after
         width: 0px
     
-    
+@keyframes bulb-pulse-1
+    0%
+        opacity: 1
+        box-shadow: 1px 3px 10px #E3170AFF, -1px 3px 10px #E3170AFF
+    100%
+        opacity: 0.1 
+        box-shadow: none
+         
+@keyframes bulb-pulse-2
+    0%
+        opacity: 0.1 
+        box-shadow: none
+    100%
+        opacity: 1
+        box-shadow: 1px 3px 10px #A9E5BBFF, -1px 3px 10px #A9E5BBFF
 
+@keyframes bulb-pulse-3
+    0%
+        opacity: 1
+        box-shadow: 1px 3px 10px #FCF6B1FF, -1px 3px 10px #FCF6B1FF
+    100%
+        opacity: 0.1 
+        box-shadow: none
 
-    
+@keyframes bulb-pulse-4
+    0%
+        opacity: 0.1 
+        box-shadow: none
+    100%
+        opacity: 1
+        box-shadow: 1px 3px 10px #F7B32BFF, -1px 3px 10px #F7B32BFF
