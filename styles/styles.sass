@@ -1,5 +1,5 @@
 body
-    // background: black
+    background: black
     margin: 0px
 
 .Container
@@ -22,10 +22,24 @@ body
     box-sizing: border-box
     width: 15px
     height: 40px
-    background: #ffc36d
     margin: 10px 20px 0px 20px
     border-radius: 50%
-    box-shadow: 1px 3px 10px #ffc36d, -1px 3px 10px #ffc36d
+
+    &:nth-child(4n+1)
+        background: #E3170AFF
+        box-shadow: 1px 3px 10px #E3170AFF, -1px 3px 10px #E3170AFF
+
+    &:nth-child(4n-2)
+        background: #A9E5BBFF
+        box-shadow: 1px 3px 10px #A9E5BBFF, -1px 3px 10px #A9E5BBFF
+
+    &:nth-child(4n+3)
+        background: #FCF6B1FF
+        box-shadow: 1px 3px 10px #FCF6B1FF, -1px 3px 10px #FCF6B1FF
+    
+    &:nth-child(4n+4)
+        background: #F7B32BFF
+        box-shadow: 1px 3px 10px #F7B32BFF, -1px 3px 10px #F7B32BFF
 
     &::before
         content: ''
@@ -36,7 +50,7 @@ body
         top: -5px
         width: 15px
         height: 10px
-        background: #464646
+        background: #282828
         border-radius: 2px
         border-bottom: solid 2px #2a2a2a
 
@@ -46,14 +60,15 @@ body
         left: 5px
         top: -30px
         background: transparent
-        border-bottom: solid 3px #464646
+        border-bottom: solid 3px #282828
         width: 60px
         height: 30px
         border-radius: 50%
 
     &:last-child::after
         width: 0px
-        
+    
+    
 
 
     

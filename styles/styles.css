@@ -1,4 +1,5 @@
 body {
+  background: black;
   margin: 0px;
 }
 
@@ -23,10 +24,24 @@ body {
   box-sizing: border-box;
   width: 15px;
   height: 40px;
-  background: #ffc36d;
   margin: 10px 20px 0px 20px;
   border-radius: 50%;
-  box-shadow: 1px 3px 10px #ffc36d, -1px 3px 10px #ffc36d;
+}
+.Bulb:nth-child(4n+1) {
+  background: #e3170a;
+  box-shadow: 1px 3px 10px #e3170a, -1px 3px 10px #e3170a;
+}
+.Bulb:nth-child(4n-2) {
+  background: #a9e5bb;
+  box-shadow: 1px 3px 10px #a9e5bb, -1px 3px 10px #a9e5bb;
+}
+.Bulb:nth-child(4n+3) {
+  background: #fcf6b1;
+  box-shadow: 1px 3px 10px #fcf6b1, -1px 3px 10px #fcf6b1;
+}
+.Bulb:nth-child(4n+4) {
+  background: #f7b32b;
+  box-shadow: 1px 3px 10px #f7b32b, -1px 3px 10px #f7b32b;
 }
 .Bulb::before {
   content: "";
@@ -37,7 +52,7 @@ body {
   top: -5px;
   width: 15px;
   height: 10px;
-  background: #464646;
+  background: #282828;
   border-radius: 2px;
   border-bottom: solid 2px #2a2a2a;
 }
@@ -47,7 +62,7 @@ body {
   left: 5px;
   top: -30px;
   background: transparent;
-  border-bottom: solid 3px #464646;
+  border-bottom: solid 3px #282828;
   width: 60px;
   height: 30px;
   border-radius: 50%;
