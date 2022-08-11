@@ -20,30 +20,31 @@ body
     justify-content: center
     top: -5px
     box-sizing: border-box
+    background: white
     width: 15px
     height: 40px
     margin: 10px 20px 0px 20px
     border-radius: 50%
 
-    &:nth-child(4n+1)
+    &_first
         background: #E3170AFF
         opacity: 1
         box-shadow: 1px 3px 10px #E3170AFF, -1px 3px 10px #E3170AFF
         animation: bulb-pulse-1 2s linear infinite alternate
 
-    &:nth-child(4n-2)
+    &_second
         background: #A9E5BBFF
         opacity: 0.1
         box-shadow: 1px 3px 10px #A9E5BBFF, -1px 3px 10px #A9E5BBFF
         animation: bulb-pulse-2 2s linear 2s infinite alternate
 
-    &:nth-child(4n+3)
+    &_third
         background: #FCF6B1FF
         opacity: 1
         box-shadow: 1px 3px 10px #FCF6B1FF, -1px 3px 10px #FCF6B1FF
         animation: bulb-pulse-3 2s linear infinite alternate
     
-    &:nth-child(4n+4)
+    &_fourth
         background: #F7B32BFF
         opacity: 0.1
         box-shadow: 1px 3px 10px #F7B32BFF, -1px 3px 10px #F7B32BFF

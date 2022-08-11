@@ -22,33 +22,34 @@ body {
   justify-content: center;
   top: -5px;
   box-sizing: border-box;
+  background: white;
   width: 15px;
   height: 40px;
   margin: 10px 20px 0px 20px;
   border-radius: 50%;
 }
-.Bulb:nth-child(4n+1) {
+.Bulb_first {
   background: #e3170a;
   opacity: 1;
   box-shadow: 1px 3px 10px #e3170a, -1px 3px 10px #e3170a;
   -webkit-animation: bulb-pulse-1 2s linear infinite alternate;
           animation: bulb-pulse-1 2s linear infinite alternate;
 }
-.Bulb:nth-child(4n-2) {
+.Bulb_second {
   background: #a9e5bb;
   opacity: 0.1;
   box-shadow: 1px 3px 10px #a9e5bb, -1px 3px 10px #a9e5bb;
   -webkit-animation: bulb-pulse-2 2s linear 2s infinite alternate;
           animation: bulb-pulse-2 2s linear 2s infinite alternate;
 }
-.Bulb:nth-child(4n+3) {
+.Bulb_third {
   background: #fcf6b1;
   opacity: 1;
   box-shadow: 1px 3px 10px #fcf6b1, -1px 3px 10px #fcf6b1;
   -webkit-animation: bulb-pulse-3 2s linear infinite alternate;
           animation: bulb-pulse-3 2s linear infinite alternate;
 }
-.Bulb:nth-child(4n+4) {
+.Bulb_fourth {
   background: #f7b32b;
   opacity: 0.1;
   box-shadow: 1px 3px 10px #f7b32b, -1px 3px 10px #f7b32b;
