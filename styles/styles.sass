@@ -13,38 +13,37 @@ body
     display: flex
     justify-content: center
 
-
 .Bulb
     position: relative
     display: flex
     justify-content: center
     top: -5px
     box-sizing: border-box
-    background: white
+    background: #00a572
     width: 15px
     height: 40px
     margin: 10px 20px 0px 20px
     border-radius: 50%
 
-    &_first
+    &__first
         background: #E3170AFF
         opacity: 1
         box-shadow: 1px 3px 10px #E3170AFF, -1px 3px 10px #E3170AFF
         animation: bulb-pulse-1 2s linear infinite alternate
 
-    &_second
+    &__second
         background: #A9E5BBFF
         opacity: 0.1
         box-shadow: 1px 3px 10px #A9E5BBFF, -1px 3px 10px #A9E5BBFF
         animation: bulb-pulse-2 2s linear 2s infinite alternate
 
-    &_third
+    &__third
         background: #FCF6B1FF
         opacity: 1
         box-shadow: 1px 3px 10px #FCF6B1FF, -1px 3px 10px #FCF6B1FF
         animation: bulb-pulse-3 2s linear infinite alternate
     
-    &_fourth
+    &__fourth
         background: #F7B32BFF
         opacity: 0.1
         box-shadow: 1px 3px 10px #F7B32BFF, -1px 3px 10px #F7B32BFF
@@ -76,7 +75,35 @@ body
 
     &:last-child::after
         width: 0px
-    
+
+.Control-panel
+    position: absolute
+    top: 60%
+
+.Button 
+    font-size: 15px
+    color: white
+    background: transparent 
+    border: solid 1px #00a572
+    cursor: pointer
+
+    &:hover
+        box-shadow: 0px 0px 5px #4cc09c
+
+    &__circled
+        width: 45px
+        height: 45px
+        border-radius: 50%
+
+        &:first-child
+            margin-right: 5px
+
+    &__settings
+        margin-left: 10px
+        width: 100px
+        height: 40px
+        border-radius: 10px
+
 @keyframes bulb-pulse-1
     0%
         opacity: 0.1
