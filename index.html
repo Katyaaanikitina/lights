@@ -10,14 +10,14 @@
 <body>
     <div class="Container">
 
-        <div class="Lights">
+        <div id="lights" class="Lights">
             <div class="Bulb"></div>
         </div>
 
         <div class="Control-panel">
-            <button id="Play" class="Button Button__circled">ON</button>
-            <button id="Stop" class="Button Button__circled">OFF</button>
-            <button id="Settings" class="Button Button__settings">SETTINGS</button>
+            <button onclick="turnOnLights()" class="Button Button__circled">ON</button>
+            <button id="stop" class="Button Button__circled">OFF</button>
+            <button id="settings" class="Button Button__settings">SETTINGS</button>
         </div>
         <script src='script.js'></script> 
     </div>
