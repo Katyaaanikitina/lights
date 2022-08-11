@@ -5,7 +5,6 @@ const bulbWidth = parseInt(window.getComputedStyle(document.getElementsByClassNa
 const wireWidth = parseInt(window.getComputedStyle(document.getElementsByClassName('Bulb')[0]).marginRight);
 const numberOfLamps = Math.floor(windowWidth / (bulbWidth + wireWidth)) - 1;
 
-
 // Creating bulbs due to the length of the window
 
 for (let i=0; i <= numberOfLamps; i++) {
@@ -14,16 +13,25 @@ for (let i=0; i <= numberOfLamps; i++) {
     document.getElementsByClassName('Lights')[0].append(bulb);
 }
 
+
+
+// Getting needed bulbs to color in particular shade
+
+const FirstBulbsAll = Array.from(document.querySelectorAll('#lights :nth-child(4n+1)'));
+const SecondBulbsAll = Array.from(document.querySelectorAll('#lights :nth-child(4n-2)'));
+const ThirdBulbsAll = Array.from(document.querySelectorAll('#lights :nth-child(4n+3)'));
+const FourthBulbsAll = Array.from(document.querySelectorAll('#lights :nth-child(4n+4)'));
+
 function turnOnLights() {
-    let FirstBulbsAll = document.querySelectorAll('#lights :nth-child(4n+1)');
-    Array.from(FirstBulbsAll).forEach((bulb) => bulb.classList.add('Bulb__first'));
+    FirstBulbsAll.forEach((bulb) => bulb.classList.add('Bulb__first'));
+    SecondBulbsAll.forEach((bulb) => bulb.classList.add('Bulb__second'));
+    ThirdBulbsAll.forEach((bulb) => bulb.classList.add('Bulb__third'));
+    FourthBulbsAll.forEach((bulb) => bulb.classList.add('Bulb__fourth'));
+}
 
-    let SecondBulbsAll = document.querySelectorAll('#lights :nth-child(4n-2)');
-    Array.from(SecondBulbsAll).forEach((bulb) => bulb.classList.add('Bulb__second'));
-
-    let ThirdBulbsAll = document.querySelectorAll('#lights :nth-child(4n+3)');
-    Array.from(ThirdBulbsAll).forEach((bulb) => bulb.classList.add('Bulb__third'));
-
-    let FourthBulbsAll = document.querySelectorAll('#lights :nth-child(4n+4)');
-    Array.from(FourthBulbsAll).forEach((bulb) => bulb.classList.add('Bulb__fourth'));
+function turnOffLights() {
+    FirstBulbsAll.forEach((bulb) => bulb.classList.remove('Bulb__first'));
+    SecondBulbsAll.forEach((bulb) => bulb.classList.remove('Bulb__second'));
+    ThirdBulbsAll.forEach((bulb) => bulb.classList.remove('Bulb__third'));
+    FourthBulbsAll.forEach((bulb) => bulb.classList.remove('Bulb__fourth'));
 }
