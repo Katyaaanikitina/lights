@@ -15,9 +15,51 @@
         </div>
 
         <div class="Control-panel">
-            <button onclick="turnOnLights()" class="Button Button__circled">ON</button>
-            <button onclick="turnOffLights()" class="Button Button__circled">OFF</button>
-            <button class="Button Button__settings">SETTINGS</button>
+            <button onclick="turnOnLights()" class="Control-panel__button Control-panel__button_circled">ON</button>
+            <button onclick="turnOffLights()" class="Control-panel__button Control-panel__button_circled">OFF</button>
+            <button onclick="openSettingsBar()" class="Control-panel__button Control-panel__button_settings">SETTINGS</button>
+            
+            <div class="Control-panel__setting-bar">
+                
+                <table>
+                    <tr>
+                        <td>Shape</td>
+                        <td>
+                            <input type="radio" value="oval">
+                            <input type="radio" value="circle">
+                            <input type="radio" value="square">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Color</td>
+                        <td>
+                            <button><img></button>
+                            <button><img></button>
+                            <button><img></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Mode</td>
+                        <td>
+                            <input type="radio" value="two by two">
+                            <input type="radio" value="one by one">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Speed</td>
+                        <td>
+                            <select>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                
+                <button onclick="closeSettingsBar()" class="Control-panel__button Control-panel__setting-bar_close-button">CLOSE</button>
+            </div>
         </div>
         <script src='script.js'></script> 
     </div>

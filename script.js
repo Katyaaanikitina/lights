@@ -1,12 +1,10 @@
 // Getting needed sizes to culculate the number of needed bulbs
-
 const windowWidth = document.documentElement.clientWidth;
 const bulbWidth = parseInt(window.getComputedStyle(document.getElementsByClassName('Bulb')[0]).width);
 const wireWidth = parseInt(window.getComputedStyle(document.getElementsByClassName('Bulb')[0]).marginRight);
 const numberOfLamps = Math.floor(windowWidth / (bulbWidth + wireWidth)) - 1;
 
 // Creating bulbs due to the length of the window
-
 for (let i=0; i <= numberOfLamps; i++) {
     const bulb = document.createElement('div');
     bulb.classList.add('Bulb');
@@ -34,4 +32,17 @@ function turnOffLights() {
     SecondBulbsAll.forEach((bulb) => bulb.classList.remove('Bulb__second'));
     ThirdBulbsAll.forEach((bulb) => bulb.classList.remove('Bulb__third'));
     FourthBulbsAll.forEach((bulb) => bulb.classList.remove('Bulb__fourth'));
+}
+
+
+
+// Funtions for opening and closing setting bar
+function openSettingsBar() {
+    document.getElementsByClassName('Control-panel__button_settings')[0].style.display = 'none';
+    document.getElementsByClassName('Control-panel__setting-bar')[0].style.display = 'block';
+}
+
+function closeSettingsBar() {
+    document.getElementsByClassName('Control-panel__button_settings')[0].style.display = 'block';
+    document.getElementsByClassName('Control-panel__setting-bar')[0].style.display = 'none';
 }
