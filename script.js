@@ -37,12 +37,12 @@ function turnOffLights() {
 
 
 // Funtions for opening and closing setting bar
-function openSettingsBar() {
-    document.getElementsByClassName('Control-panel__button_settings')[0].style.display = 'none';
-    document.getElementsByClassName('Control-panel__setting-bar')[0].style.display = 'block';
-}
+// function openSettingsBar() {
+//     document.getElementsByClassName('Control-panel__button_settings')[0].style.display = 'none';
+//     document.getElementsByClassName('Control-panel__setting-bar')[0].style.display = 'block';
+// }
 
-function closeSettingsBar() {
-    document.getElementsByClassName('Control-panel__button_settings')[0].style.display = 'block';
-    document.getElementsByClassName('Control-panel__setting-bar')[0].style.display = 'none';
-}
+// function closeSettingsBar() {
+//     document.getElementsByClassName('Control-panel__button_settings')[0].style.display = 'block';
+//     document.getElementsByClassName('Control-panel__setting-bar')[0].style.display = 'none';
+// }

@@ -108,14 +108,14 @@ body {
   margin-right: 5px;
 }
 .Control-panel__button_settings {
-  display: block;
+  display: none;
   margin-left: 10px;
   width: 100px;
   height: 40px;
   border-radius: 10px;
 }
 .Control-panel__setting-bar {
-  display: none;
+  display: block;
   margin-left: 10px;
   padding: 5px;
   border: solid 1px #00a572;
@@ -124,10 +124,25 @@ body {
   color: white;
 }
 .Control-panel__setting-bar td:first-child {
-  padding-right: 10px;
+  padding-right: 15px;
+  font-size: 1.2em;
 }
-.Control-panel__setting-bar input[type=radio] {
+.Control-panel__setting-bar_shape input[type=radio] {
+  position: fixed;
+  width: 0;
   margin: 0px;
+  opacity: 0;
+  cursor: pointer;
+}
+.Control-panel__setting-bar_shape input[type=radio]:checked + label {
+  border: solid 1px #00a572;
+}
+.Control-panel__setting-bar_shape label {
+  display: inline-block;
+  padding: 0px 5px;
+  background: transparent;
+  border-radius: 5px;
+  cursor: pointer;
 }
 .Control-panel__setting-bar_close-button {
   margin-top: 10px;
