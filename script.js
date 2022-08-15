@@ -37,12 +37,48 @@ function turnOffLights() {
 
 
 // Funtions for opening and closing setting bar
-// function openSettingsBar() {
-//     document.getElementsByClassName('Control-panel__button_settings')[0].style.display = 'none';
-//     document.getElementsByClassName('Control-panel__setting-bar')[0].style.display = 'block';
-// }
+function openSettingsBar() {
+    document.getElementsByClassName('Control-panel__button_settings')[0].style.display = 'none';
+    document.getElementsByClassName('Control-panel__setting-bar')[0].style.display = 'block';
+}
 
-// function closeSettingsBar() {
-//     document.getElementsByClassName('Control-panel__button_settings')[0].style.display = 'block';
-//     document.getElementsByClassName('Control-panel__setting-bar')[0].style.display = 'none';
-// }
+function closeSettingsBar() {
+    document.getElementsByClassName('Control-panel__button_settings')[0].style.display = 'block';
+    document.getElementsByClassName('Control-panel__setting-bar')[0].style.display = 'none';
+}
+
+
+
+//Event listener for changing the shape of bulbs 
+const shapeChangingPanel = document.getElementsByClassName('Control-panel__setting-bar_shape')[0];
+
+shapeChangingPanel.onclick = function(event) {
+    const shapeButton = event.target.closest('label');
+    if(!shapeButton) return;
+
+    changeShape(shapeButton);
+}
+
+function changeShape(clickedButton) {
+    const bulbs = Array.from(document.getElementsByClassName('Bulb'));
+
+    if(clickedButton.innerHTML == 'circle') {
+        bulbs.forEach(function (bulb) {
+            bulb.classList.remove('Bulb__square', 'Bulb__oval');
+            bulb.classList.add('Bulb__circle');
+        });
+    }
+
+    if(clickedButton.innerHTML == 'square') {
+        bulbs.forEach(function (bulb) {
+            bulb.classList.remove('Bulb__circle', 'Bulb__oval');
+            bulb.classList.add('Bulb__square');
+        });
+    }
+
+    if(clickedButton.innerHTML == 'oval') {
+        bulbs.forEach(function (bulb) {
+            bulb.classList.remove('Bulb__square', 'Bulb__circle');
+        });
+    }
+}
