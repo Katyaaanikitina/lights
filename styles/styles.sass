@@ -1,3 +1,5 @@
+@import "variables.sass"
+
 body
     background: black
     margin: 0px
@@ -19,7 +21,7 @@ body
     justify-content: center
     top: -5px
     box-sizing: border-box
-    background: #00a572
+    background: $topic-color
     width: 15px
     height: 40px
     margin: 10px 20px 0px 25px
@@ -38,27 +40,27 @@ body
         border-radius: 5px
 
     &__first
-        background: #E3170AFF
+        background: $bulb-color-1
         opacity: 1
-        box-shadow: 1px 3px 10px #E3170AFF, -1px 3px 10px #E3170AFF
+        box-shadow: 1px 3px 10px $bulb-color-1, -1px 3px 10px $bulb-color-1
         animation: bulb-pulse-1 2s linear infinite alternate
 
     &__second
-        background: #A9E5BBFF
+        background: $bulb-color-2
         opacity: 0.1
-        box-shadow: 1px 3px 10px #A9E5BBFF, -1px 3px 10px #A9E5BBFF
+        box-shadow: 1px 3px 10px $bulb-color-2, -1px 3px 10px $bulb-color-2
         animation: bulb-pulse-2 2s linear 2s infinite alternate
 
     &__third
-        background: #FCF6B1FF
+        background: $bulb-color-3
         opacity: 1
-        box-shadow: 1px 3px 10px #FCF6B1FF, -1px 3px 10px #FCF6B1FF
+        box-shadow: 1px 3px 10px $bulb-color-3, -1px 3px 10px $bulb-color-3
         animation: bulb-pulse-3 2s linear infinite alternate
     
     &__fourth
-        background: #F7B32BFF
+        background: $bulb-color-4
         opacity: 0.1
-        box-shadow: 1px 3px 10px #F7B32BFF, -1px 3px 10px #F7B32BFF
+        box-shadow: 1px 3px 10px $bulb-color-4, -1px 3px 10px $bulb-color-4
         animation: bulb-pulse-4 2s linear 2s infinite alternate
 
     &::before
@@ -97,11 +99,11 @@ body
         font-size: 15px
         color: white
         background: transparent 
-        border: solid 1px #00a572
+        border: solid 1px $topic-color
         cursor: pointer
 
         &:hover
-            box-shadow: 0px 0px 5px #4cc09c
+            box-shadow: 0px 0px 5px $topic-color-shadow
 
         &_circled
             width: 45px
@@ -112,17 +114,17 @@ body
             margin-right: 5px
 
         &_settings
-            display: block
+            display: none
             margin-left: 10px
             width: 100px
             height: 40px
             border-radius: 10px
     
     &__setting-bar
-        display: none
+        display: block
         margin-left: 10px
         padding: 5px
-        border: solid 1px #00a572
+        border: solid 1px $topic-color
         border-radius: 10px
         font-size: 15px
         color: white
@@ -141,7 +143,7 @@ body
                 cursor: pointer
             
                 &:checked + label 
-                    border: solid 1px #00a572
+                    border: solid 1px $topic-color
 
             label 
                 display: inline-block
@@ -162,7 +164,7 @@ body
         box-shadow: none
     100%
         opacity: 1 
-        box-shadow: 1px 3px 10px #E3170AFF, -1px 3px 10px #E3170AFF
+        box-shadow: 1px 3px 10px $bulb-color-1, -1px 3px 10px $bulb-color-1
          
 @keyframes bulb-pulse-2
     0%
@@ -170,7 +172,7 @@ body
         box-shadow: none
     100%
         opacity: 1
-        box-shadow: 1px 3px 10px #A9E5BBFF, -1px 3px 10px #A9E5BBFF
+        box-shadow: 1px 3px 10px $bulb-color-2, -1px 3px 10px $bulb-color-2
 
 @keyframes bulb-pulse-3
     0%
@@ -178,7 +180,7 @@ body
         box-shadow: none
     100%
         opacity: 1
-        box-shadow: 1px 3px 10px #FCF6B1FF, -1px 3px 10px #FCF6B1FF
+        box-shadow: 1px 3px 10px $bulb-color-3, -1px 3px 10px $bulb-color-3
 
 @keyframes bulb-pulse-4
     0%
@@ -186,4 +188,4 @@ body
         box-shadow: none
     100%
         opacity: 1
-        box-shadow: 1px 3px 10px #F7B32BFF, -1px 3px 10px #F7B32BFF
+        box-shadow: 1px 3px 10px $bulb-color-4, -1px 3px 10px $bulb-color-4
