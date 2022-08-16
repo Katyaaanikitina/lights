@@ -133,24 +133,38 @@ body
             padding-right: 15px
             font-size: 1.2em
 
+        input[type="radio"] 
+            position: fixed
+            width: 0
+            margin: 0px
+            opacity: 0
+            cursor: pointer
+            
+            &:checked + label 
+                border: solid 1px $topic-color
+            
+        label
+            display: inline-block
+            cursor: pointer
+            background: transparent
+
         &_shape 
 
-            input[type="radio"] 
-                position: fixed
-                width: 0
-                margin: 0px
-                opacity: 0
-                cursor: pointer
-            
-                &:checked + label 
-                    border: solid 1px $topic-color
-
             label 
-                display: inline-block
                 padding: 0px 5px
-                background: transparent 
                 border-radius: 5px
-                cursor: pointer
+
+        &_color
+
+            label  
+                border-radius: 4px
+
+                img
+                    display: block
+                    width: 45px
+                    height: 15px
+                    border-radius: 3px
+
 
         &_close-button 
             margin-top: 10px

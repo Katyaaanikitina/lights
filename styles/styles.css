@@ -139,22 +139,33 @@ body {
   padding-right: 15px;
   font-size: 1.2em;
 }
-.Control-panel__setting-bar_shape input[type=radio] {
+.Control-panel__setting-bar input[type=radio] {
   position: fixed;
   width: 0;
   margin: 0px;
   opacity: 0;
   cursor: pointer;
 }
-.Control-panel__setting-bar_shape input[type=radio]:checked + label {
+.Control-panel__setting-bar input[type=radio]:checked + label {
   border: solid 1px #00a572;
 }
-.Control-panel__setting-bar_shape label {
+.Control-panel__setting-bar label {
   display: inline-block;
-  padding: 0px 5px;
-  background: transparent;
-  border-radius: 5px;
   cursor: pointer;
+  background: transparent;
+}
+.Control-panel__setting-bar_shape label {
+  padding: 0px 5px;
+  border-radius: 5px;
+}
+.Control-panel__setting-bar_color label {
+  border-radius: 4px;
+}
+.Control-panel__setting-bar_color label img {
+  display: block;
+  width: 45px;
+  height: 15px;
+  border-radius: 3px;
 }
 .Control-panel__setting-bar_close-button {
   margin-top: 10px;
