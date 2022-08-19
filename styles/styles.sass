@@ -1,21 +1,21 @@
 @import "variables.sass"
 
-body
+body 
     background: black
     margin: 0px
 
-.Container
+.Container 
     width: 100%
     height: auto
     display: flex
     justify-content: center
 
-.Lights
+.Lights 
     position: fixed
     display: flex
     justify-content: center
 
-.Bulb
+.Bulb 
     position: relative
     display: flex
     justify-content: center
@@ -27,43 +27,39 @@ body
     margin: 10px 20px 0px 25px
     border-radius: 50%
 
-    &__circle
+    &__circle 
         margin: 10px 25px 0px 0px
         width: 30px
         height: 30px
         border-radius: 50%
-
-    &__square
+    
+    &__square 
         width: 10px
         height: 20px
         margin: 10px 20px 0px 35px
         border-radius: 5px
-
-    &__first
-        background: $bulb-color-1
+    
+    &__first 
         opacity: 1
-        box-shadow: 1px 3px 10px $bulb-color-1, -1px 3px 10px $bulb-color-1
+        box-shadow: 1px 3px 10px, -1px 3px 10px
         animation: bulb-pulse-1 2s linear infinite alternate
 
-    &__second
-        background: $bulb-color-2
+    &__second 
         opacity: 0.1
-        box-shadow: 1px 3px 10px $bulb-color-2, -1px 3px 10px $bulb-color-2
+        box-shadow: 1px 3px 10px, -1px 3px 10px
         animation: bulb-pulse-2 2s linear 2s infinite alternate
 
-    &__third
-        background: $bulb-color-3
+    &__third 
         opacity: 1
-        box-shadow: 1px 3px 10px $bulb-color-3, -1px 3px 10px $bulb-color-3
+        box-shadow: 1px 3px 10px, -1px 3px 10px
         animation: bulb-pulse-3 2s linear infinite alternate
-    
-    &__fourth
-        background: $bulb-color-4
+
+    &__fourth 
         opacity: 0.1
-        box-shadow: 1px 3px 10px $bulb-color-4, -1px 3px 10px $bulb-color-4
+        box-shadow: 1px 3px 10px, -1px 3px 10px
         animation: bulb-pulse-4 2s linear 2s infinite alternate
 
-    &::before
+    &::before 
         content: ''
         position: absolute
         display: inline-block
@@ -76,7 +72,7 @@ body
         border-radius: 2px
         border-bottom: solid 2px #2a2a2a
 
-    &::after
+    &::after 
         content: ''
         position: absolute
         left: 5px
@@ -87,41 +83,41 @@ body
         height: 30px
         border-radius: 50%
 
-    &:last-child::after
+    &:last-child::after 
         width: 0px
 
-.Control-panel
+.Control-panel 
     display: flex
     position: absolute
     top: 60%
 
-    &__button
+    &__button 
         font-size: 15px
         color: white
-        background: transparent 
+        background: transparent
         border: solid 1px $topic-color
         cursor: pointer
 
-        &:hover
+        &:hover 
             box-shadow: 0px 0px 5px $topic-color-shadow
 
-        &_circled
+        &_circled 
             width: 45px
             height: 45px
             border-radius: 50%
 
-        &:first-child
+        &:first-child 
             margin-right: 5px
 
-        &_settings
-            display: none
+        &_settings 
+            display: block
             margin-left: 10px
             width: 100px
             height: 40px
             border-radius: 10px
-    
-    &__setting-bar
-        display: block
+
+    &__setting-bar 
+        display: none
         margin-left: 10px
         padding: 5px
         border: solid 1px $topic-color
@@ -129,7 +125,7 @@ body
         font-size: 15px
         color: white
 
-        td:first-child
+        td:first-child 
             padding-right: 15px
             font-size: 1.2em
 
@@ -142,64 +138,61 @@ body
             
             &:checked + label 
                 border: solid 1px $topic-color
-            
-        label
+
+        label 
             display: inline-block
             cursor: pointer
             background: transparent
 
         &_shape 
-
             label 
                 padding: 0px 5px
                 border-radius: 5px
 
-        &_color
-
-            label  
+        &_color 
+            label 
                 border-radius: 4px
 
-                img
+                img 
                     display: block
                     width: 45px
                     height: 15px
                     border-radius: 3px
-
-
+                
         &_close-button 
             margin-top: 10px
             border-radius: 5px
             float: right
+    
 
+@keyframes bulb-pulse-1 
+    0% 
+        opacity: 0.1
+        box-shadow: none
+    100% 
+        opacity: 1
+        box-shadow: 1px 3px 10px, -1px 3px 10px 
 
-@keyframes bulb-pulse-1
+@keyframes bulb-pulse-2 
+    0% 
+        opacity: 0.1
+        box-shadow: none
+    100% 
+        opacity: 1
+        box-shadow: 1px 3px 10px, -1px 3px 10px
+
+@keyframes bulb-pulse-3 
     0%
         opacity: 0.1
         box-shadow: none
-    100%
-        opacity: 1 
-        box-shadow: 1px 3px 10px $bulb-color-1, -1px 3px 10px $bulb-color-1
-         
-@keyframes bulb-pulse-2
-    0%
+    100% 
+        opacity: 1
+        box-shadow: 1px 3px 10px, -1px 3px 10px
+
+@keyframes bulb-pulse-4 
+    0% 
         opacity: 0.1 
         box-shadow: none
-    100%
+    100% 
         opacity: 1
-        box-shadow: 1px 3px 10px $bulb-color-2, -1px 3px 10px $bulb-color-2
-
-@keyframes bulb-pulse-3
-    0%
-        opacity: 0.1
-        box-shadow: none
-    100%
-        opacity: 1
-        box-shadow: 1px 3px 10px $bulb-color-3, -1px 3px 10px $bulb-color-3
-
-@keyframes bulb-pulse-4
-    0%
-        opacity: 0.1 
-        box-shadow: none
-    100%
-        opacity: 1
-        box-shadow: 1px 3px 10px $bulb-color-4, -1px 3px 10px $bulb-color-4
+        box-shadow: 1px 3px 10px, -1px 3px 10px
