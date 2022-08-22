@@ -38,26 +38,23 @@ body
         height: 20px
         margin: 10px 20px 0px 35px
         border-radius: 5px
-    
-    &__first 
-        opacity: 1
+
+    &__glow
+        opacity: 0.1
         box-shadow: 1px 3px 10px, -1px 3px 10px
-        animation: bulb-pulse-1 2s linear infinite alternate
+        animation: bulb-pulse 2s linear infinite alternate
+
+    &__first 
+        animation-delay: 0s
 
     &__second 
-        opacity: 0.1
-        box-shadow: 1px 3px 10px, -1px 3px 10px
-        animation: bulb-pulse-2 2s linear 2s infinite alternate
+        animation-delay: 2s
 
     &__third 
-        opacity: 1
-        box-shadow: 1px 3px 10px, -1px 3px 10px
-        animation: bulb-pulse-3 2s linear infinite alternate
+        animation-delay: 0s
 
     &__fourth 
-        opacity: 0.1
-        box-shadow: 1px 3px 10px, -1px 3px 10px
-        animation: bulb-pulse-4 2s linear 2s infinite alternate
+        animation-delay: 2s
 
     &::before 
         content: ''
@@ -110,14 +107,14 @@ body
             margin-right: 5px
 
         &_settings 
-            display: block
+            display: none
             margin-left: 10px
             width: 100px
             height: 40px
             border-radius: 10px
 
     &__setting-bar 
-        display: none
+        display: block
         margin-left: 10px
         padding: 5px
         border: solid 1px $topic-color
@@ -166,7 +163,7 @@ body
             float: right
     
 
-@keyframes bulb-pulse-1 
+@keyframes bulb-pulse 
     0% 
         opacity: 0.1
         box-shadow: none
@@ -174,26 +171,3 @@ body
         opacity: 1
         box-shadow: 1px 3px 10px, -1px 3px 10px 
 
-@keyframes bulb-pulse-2 
-    0% 
-        opacity: 0.1
-        box-shadow: none
-    100% 
-        opacity: 1
-        box-shadow: 1px 3px 10px, -1px 3px 10px
-
-@keyframes bulb-pulse-3 
-    0%
-        opacity: 0.1
-        box-shadow: none
-    100% 
-        opacity: 1
-        box-shadow: 1px 3px 10px, -1px 3px 10px
-
-@keyframes bulb-pulse-4 
-    0% 
-        opacity: 0.1 
-        box-shadow: none
-    100% 
-        opacity: 1
-        box-shadow: 1px 3px 10px, -1px 3px 10px

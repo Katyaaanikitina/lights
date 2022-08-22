@@ -5,7 +5,6 @@ const bulbWidth = parseInt(window.getComputedStyle(document.getElementsByClassNa
 const wireWidth = parseInt(window.getComputedStyle(document.getElementsByClassName('Bulb')[0]).marginRight);
 const numberOfLamps = Math.floor(windowWidth / (bulbWidth + wireWidth)) - 1;
 
-
 // Creating bulbs due to the length of the window
 for (let i=0; i <= numberOfLamps; i++) {
     const bulb = document.createElement('div');
@@ -15,11 +14,13 @@ for (let i=0; i <= numberOfLamps; i++) {
 
 
 // Getting needed bulbs to color in particular shade
+const bulbs = Array.from(document.getElementsByClassName('Bulb'));
 
 const FirstBulbsAll = Array.from(document.querySelectorAll('#lights :nth-child(4n+1)'));
 const SecondBulbsAll = Array.from(document.querySelectorAll('#lights :nth-child(4n-2)'));
 const ThirdBulbsAll = Array.from(document.querySelectorAll('#lights :nth-child(4n+3)'));
 const FourthBulbsAll = Array.from(document.querySelectorAll('#lights :nth-child(4n+4)'));
+
 const colorChangingPanel = document.getElementsByClassName('Control-panel__setting-bar_color')[0];
 
 const basicColorPalette = document.getElementById('basic');
@@ -35,11 +36,7 @@ function turnOnLights() {
 }
 
 function turnOffLights() {
-    FirstBulbsAll.forEach((bulb) => bulb.classList.remove('Bulb__first'));
-    SecondBulbsAll.forEach((bulb) => bulb.classList.remove('Bulb__second'));
-    ThirdBulbsAll.forEach((bulb) => bulb.classList.remove('Bulb__third'));
-    FourthBulbsAll.forEach((bulb) => bulb.classList.remove('Bulb__fourth'));
-
+    bulbs.forEach((bulb) => bulb.classList.remove('Bulb__glow'));
     bulbs.forEach((bulb) => bulb.style.background = '#00a572');
     bulbs.forEach((bulb) => bulb.style.color = '#00a572');
 }
@@ -60,8 +57,6 @@ function closeSettingsBar() {
 
 //Event listener for changing the shape of bulbs 
 const shapeChangingPanel = document.getElementsByClassName('Control-panel__setting-bar_shape')[0];
-
-const bulbs = Array.from(document.getElementsByClassName('Bulb'));
 
 shapeChangingPanel.onclick = function(event) {
     const shapeButton = event.target.closest('label');
@@ -136,25 +131,25 @@ function changeColorPalette(clickedButton) {
 
 function turnOnBasicLights() {
     FirstBulbsAll.forEach((bulb) => {
-        bulb.classList.add('Bulb__first');
+        bulb.classList.add('Bulb__glow', 'Bulb__first');
         bulb.style.background = '#E3170AFF';
         bulb.style.color = '#E3170AFF';
     });
     
     SecondBulbsAll.forEach((bulb) => {
-        bulb.classList.add('Bulb__second');
+        bulb.classList.add('Bulb__glow', 'Bulb__second');
         bulb.style.background = '#A9E5BBFF';
         bulb.style.color = '#A9E5BBFF';
     });
     
     ThirdBulbsAll.forEach((bulb) => {
-        bulb.classList.add('Bulb__third');
+        bulb.classList.add('Bulb__glow', 'Bulb__third');
         bulb.style.background = '#FCF6B1FF';
         bulb.style.color = '#FCF6B1FF';
     });
     
     FourthBulbsAll.forEach((bulb) => {
-        bulb.classList.add('Bulb__fourth');
+        bulb.classList.add('Bulb__glow', 'Bulb__fourth');
         bulb.style.background = '#F7B32BFF';
         bulb.style.color = '#F7B32BFF';
     });
@@ -162,25 +157,25 @@ function turnOnBasicLights() {
     
 function turnOnBrightLights() {
     FirstBulbsAll.forEach((bulb) => {
-        bulb.classList.add('Bulb__first');
+        bulb.classList.add('Bulb__glow', 'Bulb__first');
         bulb.style.background = '#26dfd0';
         bulb.style.color = '#26dfd0';
     });
     
     SecondBulbsAll.forEach((bulb) => {
-        bulb.classList.add('Bulb__second');
+        bulb.classList.add('Bulb__glow', 'Bulb__second');
         bulb.style.background = '#b8ee30';
         bulb.style.color = '#b8ee30';
     });
     
     ThirdBulbsAll.forEach((bulb) => {
-        bulb.classList.add('Bulb__third');
+        bulb.classList.add('Bulb__glow', 'Bulb__third');
         bulb.style.background = '#f62aa0';
         bulb.style.color = '#f62aa0';
     });
     
     FourthBulbsAll.forEach((bulb) => {
-        bulb.classList.add('Bulb__fourth');
+        bulb.classList.add('Bulb__glow', 'Bulb__fourth');
         bulb.style.background = '#f9d030';
         bulb.style.color = '#f9d030';
     });
@@ -188,25 +183,25 @@ function turnOnBrightLights() {
     
 function turnOnVioletLights() {
     FirstBulbsAll.forEach((bulb) => {
-        bulb.classList.add('Bulb__first');
+        bulb.classList.add('Bulb__glow', 'Bulb__first');
         bulb.style.background = '#ffc36d';
         bulb.style.color = '#ffc36d';
     });
     
     SecondBulbsAll.forEach((bulb) => {
-        bulb.classList.add('Bulb__second');
+        bulb.classList.add('Bulb__glow', 'Bulb__second');
         bulb.style.background = '#fe6f9b';
         bulb.style.color = '#fe6f9b';
     });
     
     ThirdBulbsAll.forEach((bulb) => {
-        bulb.classList.add('Bulb__third');
+        bulb.classList.add('Bulb__glow', 'Bulb__third');
         bulb.style.background = '#c64ab3';
         bulb.style.color = '#c64ab3';
     });
     
     FourthBulbsAll.forEach((bulb) => {
-        bulb.classList.add('Bulb__fourth');
+        bulb.classList.add('Bulb__glow', 'Bulb__fourth');
         bulb.style.background = '#7b50b9';
         bulb.style.color = '#7b50b9';
     });
