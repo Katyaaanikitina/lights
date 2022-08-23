@@ -42,7 +42,7 @@ body
     &__glow
         opacity: 0.1
         box-shadow: 1px 3px 10px, -1px 3px 10px
-        animation: bulb-pulse 2s linear infinite alternate
+        animation: bulb-pulse linear 2s infinite alternate
 
     &__first 
         animation-delay: 0s
@@ -107,14 +107,14 @@ body
             margin-right: 5px
 
         &_settings 
-            display: none
+            display: block
             margin-left: 10px
             width: 100px
             height: 40px
             border-radius: 10px
 
     &__setting-bar 
-        display: block
+        display: none
         margin-left: 10px
         padding: 5px
         border: solid 1px $topic-color

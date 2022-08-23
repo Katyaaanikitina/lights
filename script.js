@@ -108,7 +108,34 @@ function changeColorPalette(clickedButton) {
         default: turnOnBasicLights();
     }
 }
-   
+
+
+//Event listener for changing the mode
+const modeChangingPanel = document.getElementsByClassName('Control-panel__setting-bar_mode')[0];
+modeChangingPanel.onclick = function(event) {
+    const modeButton = event.target.closest('input');
+    if(!modeButton) return;
+
+    changeMode(modeButton);
+}
+
+function changeMode(clickedButton) {
+    if(clickedButton.id == 'one_by_one') {
+        bulbs.forEach((bulb) => bulb.style.animationDuration = '3s');
+        SecondBulbsAll.forEach((bulb) => bulb.style.animationDelay = '1s');
+        ThirdBulbsAll.forEach((bulb) => bulb.style.animationDelay = '2s');
+        FourthBulbsAll.forEach((bulb) => bulb.style.animationDelay = '3s');
+    }
+
+    if(clickedButton.id == 'two_by_two') {
+        bulbs.forEach((bulb) => bulb.style.animationDuration = '2s');
+        SecondBulbsAll.forEach((bulb) => bulb.style.animationDelay = '2s');
+        ThirdBulbsAll.forEach((bulb) => bulb.style.animationDelay = '0s');
+        FourthBulbsAll.forEach((bulb) => bulb.style.animationDelay = '2s');
+    }
+
+}
+
 
 
 

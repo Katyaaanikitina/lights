@@ -43,8 +43,8 @@ body {
 .Bulb__glow {
   opacity: 0.1;
   box-shadow: 1px 3px 10px, -1px 3px 10px;
-  -webkit-animation: bulb-pulse 2s linear infinite alternate;
-          animation: bulb-pulse 2s linear infinite alternate;
+  -webkit-animation: bulb-pulse linear 2s infinite alternate;
+          animation: bulb-pulse linear 2s infinite alternate;
 }
 .Bulb__first {
   -webkit-animation-delay: 0s;
@@ -114,14 +114,14 @@ body {
   margin-right: 5px;
 }
 .Control-panel__button_settings {
-  display: none;
+  display: block;
   margin-left: 10px;
   width: 100px;
   height: 40px;
   border-radius: 10px;
 }
 .Control-panel__setting-bar {
-  display: block;
+  display: none;
   margin-left: 10px;
   padding: 5px;
   border: solid 1px #00a572;
