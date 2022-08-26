@@ -148,7 +148,7 @@ body {
   cursor: pointer;
   background: transparent;
 }
-.Control-panel__setting-bar_shape label, .Control-panel__setting-bar_mode label {
+.Control-panel__setting-bar_shape label, .Control-panel__setting-bar_mode label, .Control-panel__setting-bar_speed label {
   padding: 0px 5px;
   border-radius: 5px;
 }

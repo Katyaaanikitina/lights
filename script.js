@@ -29,6 +29,7 @@ const violetColorPalette = document.getElementById('violet');
 
 
 //Functions to turn on and turn off lights
+
 function turnOnLights() {
     if(basicColorPalette.checked) turnOnBasicLights();
     if(brightColorPalette.checked) turnOnBrightLights();
@@ -111,6 +112,9 @@ function changeColorPalette(clickedButton) {
 
 
 //Event listener for changing the mode
+let mode = 'twoBytwo';
+let speed = '2';
+
 const modeChangingPanel = document.getElementsByClassName('Control-panel__setting-bar_mode')[0];
 modeChangingPanel.onclick = function(event) {
     const modeButton = event.target.closest('input');
@@ -121,20 +125,61 @@ modeChangingPanel.onclick = function(event) {
 
 function changeMode(clickedButton) {
     if(clickedButton.id == 'one_by_one') {
-        bulbs.forEach((bulb) => bulb.style.animationDuration = '3s');
-        SecondBulbsAll.forEach((bulb) => bulb.style.animationDelay = '1s');
-        ThirdBulbsAll.forEach((bulb) => bulb.style.animationDelay = '2s');
-        FourthBulbsAll.forEach((bulb) => bulb.style.animationDelay = '3s');
+        if(speed == '1') onModeOnebyOneSpeed1();
+        if(speed == '2') onModeOnebyOneSpeed2();
+        if(speed == '3') onModeOnebyOneSpeed3();
+        mode = 'oneByone';
     }
 
     if(clickedButton.id == 'two_by_two') {
-        bulbs.forEach((bulb) => bulb.style.animationDuration = '2s');
-        SecondBulbsAll.forEach((bulb) => bulb.style.animationDelay = '2s');
-        ThirdBulbsAll.forEach((bulb) => bulb.style.animationDelay = '0s');
-        FourthBulbsAll.forEach((bulb) => bulb.style.animationDelay = '2s');
+        if(speed == '1') onModeTwobyTwoSpeed1();
+        if(speed == '2') onModeTwobyTwoSpeed2();
+        if(speed == '3') onModeTwobyTwoSpeed3();
+        mode = 'twoBytwo';
     }
 
 }
+
+//Event listener for changing the speed
+const speedChangingPanel = document.getElementsByClassName('Control-panel__setting-bar_speed')[0];
+speedChangingPanel.onclick = function(event) {
+    const speedButton = event.target.closest('input');
+    if(!speedButton) return;
+
+    changeSpeed(speedButton);
+}
+
+function changeSpeed(clickedButton) {
+    let speedId = clickedButton.id;
+    
+    switch (speedId) {
+        case ('speed1'): 
+            if (mode == 'oneByone') onModeOnebyOneSpeed1();
+            if (mode == 'twoBytwo') onModeTwobyTwoSpeed1();
+            speed = '1';   
+        break;
+
+        case ('speed3'): 
+            if (mode == 'oneByone') onModeOnebyOneSpeed3();
+            if (mode == 'twoBytwo') onModeTwobyTwoSpeed3();
+            speed = '3';  
+        break;
+
+        default: 
+            if (mode == 'oneByone') onModeOnebyOneSpeed2();
+            if (mode == 'twoBytwo') onModeTwobyTwoSpeed2();
+            speed = '2';  
+    }
+
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -233,3 +278,47 @@ function turnOnVioletLights() {
         bulb.style.color = '#7b50b9';
     });
 }
+
+
+
+function onModeOnebyOneSpeed1() {
+    bulbs.forEach((bulb) => bulb.style.animationDuration = '5s');
+    SecondBulbsAll.forEach((bulb) => bulb.style.animationDelay = '3s');
+    ThirdBulbsAll.forEach((bulb) => bulb.style.animationDelay = '4s');
+    FourthBulbsAll.forEach((bulb) => bulb.style.animationDelay = '6s');
+};
+
+function onModeOnebyOneSpeed2() {
+    bulbs.forEach((bulb) => bulb.style.animationDuration = '4s');
+    SecondBulbsAll.forEach((bulb) => bulb.style.animationDelay = '2s');
+    ThirdBulbsAll.forEach((bulb) => bulb.style.animationDelay = '4s');
+    FourthBulbsAll.forEach((bulb) => bulb.style.animationDelay = '5s');
+};
+
+function onModeOnebyOneSpeed3() {
+    bulbs.forEach((bulb) => bulb.style.animationDuration = '3s');
+    SecondBulbsAll.forEach((bulb) => bulb.style.animationDelay = '1s');
+    ThirdBulbsAll.forEach((bulb) => bulb.style.animationDelay = '2s');
+    FourthBulbsAll.forEach((bulb) => bulb.style.animationDelay = '3s');
+};
+
+function onModeTwobyTwoSpeed1() {
+    bulbs.forEach((bulb) => bulb.style.animationDuration = '3s');
+    SecondBulbsAll.forEach((bulb) => bulb.style.animationDelay = '3s');
+    ThirdBulbsAll.forEach((bulb) => bulb.style.animationDelay = '0s');
+    FourthBulbsAll.forEach((bulb) => bulb.style.animationDelay = '3s');
+};
+
+function onModeTwobyTwoSpeed2() {
+    bulbs.forEach((bulb) => bulb.style.animationDuration = '2s');
+    SecondBulbsAll.forEach((bulb) => bulb.style.animationDelay = '2s');
+    ThirdBulbsAll.forEach((bulb) => bulb.style.animationDelay = '0s');
+    FourthBulbsAll.forEach((bulb) => bulb.style.animationDelay = '2s');
+};
+
+function onModeTwobyTwoSpeed3() {
+    bulbs.forEach((bulb) => bulb.style.animationDuration = '1s');
+    SecondBulbsAll.forEach((bulb) => bulb.style.animationDelay = '1s');
+    ThirdBulbsAll.forEach((bulb) => bulb.style.animationDelay = '0s');
+    FourthBulbsAll.forEach((bulb) => bulb.style.animationDelay = '1s');
+};
