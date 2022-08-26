@@ -1,11 +1,10 @@
 
-// Getting needed sizes to culculate the number of needed bulbs
+// Creating bulbs due to the length of the window
 const windowWidth = document.documentElement.clientWidth;
 const bulbWidth = parseInt(window.getComputedStyle(document.getElementsByClassName('Bulb')[0]).width);
 const wireWidth = parseInt(window.getComputedStyle(document.getElementsByClassName('Bulb')[0]).marginRight);
 const numberOfLamps = Math.floor(windowWidth / (bulbWidth + wireWidth)) - 1;
 
-// Creating bulbs due to the length of the window
 for (let i=0; i <= numberOfLamps; i++) {
     const bulb = document.createElement('div');
     bulb.classList.add('Bulb');
@@ -13,23 +12,8 @@ for (let i=0; i <= numberOfLamps; i++) {
 }
 
 
-// Getting needed bulbs to color in particular shade
-const bulbs = Array.from(document.getElementsByClassName('Bulb'));
-
-const FirstBulbsAll = Array.from(document.querySelectorAll('#lights :nth-child(4n+1)'));
-const SecondBulbsAll = Array.from(document.querySelectorAll('#lights :nth-child(4n-2)'));
-const ThirdBulbsAll = Array.from(document.querySelectorAll('#lights :nth-child(4n+3)'));
-const FourthBulbsAll = Array.from(document.querySelectorAll('#lights :nth-child(4n+4)'));
-
-const colorChangingPanel = document.getElementsByClassName('Control-panel__setting-bar_color')[0];
-
-const basicColorPalette = document.getElementById('basic');
-const brightColorPalette = document.getElementById('bright');
-const violetColorPalette = document.getElementById('violet');
-
 
 //Functions to turn on and turn off lights
-
 function turnOnLights() {
     if(basicColorPalette.checked) turnOnBasicLights();
     if(brightColorPalette.checked) turnOnBrightLights();
@@ -41,6 +25,7 @@ function turnOffLights() {
     bulbs.forEach((bulb) => bulb.style.background = '#00a572');
     bulbs.forEach((bulb) => bulb.style.color = '#00a572');
 }
+
 
 
 // Funtions for opening and closing setting bar
@@ -56,7 +41,7 @@ function closeSettingsBar() {
 
 
 
-//Event listener for changing the shape of bulbs 
+//Changing the shape of bulbs 
 const shapeChangingPanel = document.getElementsByClassName('Control-panel__setting-bar_shape')[0];
 
 shapeChangingPanel.onclick = function(event) {
@@ -89,7 +74,20 @@ function changeShape(clickedButton) {
 }
 
 
-//Event listener for changing the color of bulbs 
+
+//Changing the color palette
+const bulbs = Array.from(document.getElementsByClassName('Bulb'));
+
+const FirstBulbsAll = Array.from(document.querySelectorAll('#lights :nth-child(4n+1)'));
+const SecondBulbsAll = Array.from(document.querySelectorAll('#lights :nth-child(4n-2)'));
+const ThirdBulbsAll = Array.from(document.querySelectorAll('#lights :nth-child(4n+3)'));
+const FourthBulbsAll = Array.from(document.querySelectorAll('#lights :nth-child(4n+4)'));
+
+const basicColorPalette = document.getElementById('basic');
+const brightColorPalette = document.getElementById('bright');
+const violetColorPalette = document.getElementById('violet');
+
+const colorChangingPanel = document.getElementsByClassName('Control-panel__setting-bar_color')[0];
 colorChangingPanel.onclick = function(event) {
     const colorButton = event.target.closest('input');
     if(!colorButton) return;
@@ -111,7 +109,8 @@ function changeColorPalette(clickedButton) {
 }
 
 
-//Event listener for changing the mode
+
+//Changing the glowing mode
 let mode = 'twoBytwo';
 let speed = '2';
 
@@ -130,17 +129,17 @@ function changeMode(clickedButton) {
         if(speed == '3') onModeOnebyOneSpeed3();
         mode = 'oneByone';
     }
-
     if(clickedButton.id == 'two_by_two') {
         if(speed == '1') onModeTwobyTwoSpeed1();
         if(speed == '2') onModeTwobyTwoSpeed2();
         if(speed == '3') onModeTwobyTwoSpeed3();
         mode = 'twoBytwo';
     }
-
 }
 
-//Event listener for changing the speed
+
+
+//Changing the speed
 const speedChangingPanel = document.getElementsByClassName('Control-panel__setting-bar_speed')[0];
 speedChangingPanel.onclick = function(event) {
     const speedButton = event.target.closest('input');
@@ -151,7 +150,6 @@ speedChangingPanel.onclick = function(event) {
 
 function changeSpeed(clickedButton) {
     let speedId = clickedButton.id;
-    
     switch (speedId) {
         case ('speed1'): 
             if (mode == 'oneByone') onModeOnebyOneSpeed1();
@@ -170,7 +168,6 @@ function changeSpeed(clickedButton) {
             if (mode == 'twoBytwo') onModeTwobyTwoSpeed2();
             speed = '2';  
     }
-
 }
 
 
@@ -200,7 +197,7 @@ function changeSpeed(clickedButton) {
 
 
 
-
+//Functions of different color Palette
 function turnOnBasicLights() {
     FirstBulbsAll.forEach((bulb) => {
         bulb.classList.add('Bulb__glow', 'Bulb__first');
@@ -281,6 +278,7 @@ function turnOnVioletLights() {
 
 
 
+//Functions of different speed
 function onModeOnebyOneSpeed1() {
     bulbs.forEach((bulb) => bulb.style.animationDuration = '5s');
     SecondBulbsAll.forEach((bulb) => bulb.style.animationDelay = '3s');

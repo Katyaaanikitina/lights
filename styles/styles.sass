@@ -27,6 +27,33 @@ body
     margin: 10px 20px 0px 25px
     border-radius: 50%
 
+    &::before 
+        content: ''
+        position: absolute
+        display: inline-block
+        text-align: center
+        box-sizing: border-box
+        top: -7px
+        width: 15px
+        height: 10px
+        background: #282828
+        border-radius: 2px
+        border-bottom: solid 2px #2a2a2a
+
+    &::after 
+        content: ''
+        position: absolute
+        left: 5px
+        top: -30px
+        background: transparent
+        border-bottom: solid 3px #282828
+        width: 70px
+        height: 30px
+        border-radius: 50%
+
+    &:last-child::after 
+        width: 0px
+        
     &__circle 
         margin: 10px 25px 0px 0px
         width: 30px
@@ -55,33 +82,6 @@ body
 
     &__fourth 
         animation-delay: 2s
-
-    &::before 
-        content: ''
-        position: absolute
-        display: inline-block
-        text-align: center
-        box-sizing: border-box
-        top: -7px
-        width: 15px
-        height: 10px
-        background: #282828
-        border-radius: 2px
-        border-bottom: solid 2px #2a2a2a
-
-    &::after 
-        content: ''
-        position: absolute
-        left: 5px
-        top: -30px
-        background: transparent
-        border-bottom: solid 3px #282828
-        width: 70px
-        height: 30px
-        border-radius: 50%
-
-    &:last-child::after 
-        width: 0px
 
 .Control-panel 
     display: flex

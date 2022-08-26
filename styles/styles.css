@@ -28,6 +28,33 @@ body {
   margin: 10px 20px 0px 25px;
   border-radius: 50%;
 }
+.Bulb::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
+  top: -7px;
+  width: 15px;
+  height: 10px;
+  background: #282828;
+  border-radius: 2px;
+  border-bottom: solid 2px #2a2a2a;
+}
+.Bulb::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: -30px;
+  background: transparent;
+  border-bottom: solid 3px #282828;
+  width: 70px;
+  height: 30px;
+  border-radius: 50%;
+}
+.Bulb:last-child::after {
+  width: 0px;
+}
 .Bulb__circle {
   margin: 10px 25px 0px 0px;
   width: 30px;
@@ -61,33 +88,6 @@ body {
 .Bulb__fourth {
   -webkit-animation-delay: 2s;
           animation-delay: 2s;
-}
-.Bulb::before {
-  content: "";
-  position: absolute;
-  display: inline-block;
-  text-align: center;
-  box-sizing: border-box;
-  top: -7px;
-  width: 15px;
-  height: 10px;
-  background: #282828;
-  border-radius: 2px;
-  border-bottom: solid 2px #2a2a2a;
-}
-.Bulb::after {
-  content: "";
-  position: absolute;
-  left: 5px;
-  top: -30px;
-  background: transparent;
-  border-bottom: solid 3px #282828;
-  width: 70px;
-  height: 30px;
-  border-radius: 50%;
-}
-.Bulb:last-child::after {
-  width: 0px;
 }
 
 .Control-panel {
