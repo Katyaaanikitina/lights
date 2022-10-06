@@ -10,21 +10,30 @@
 <body>
     <div class="Container">
 
-        <div id="lights" class="Lights">
+        <div class="Bulbs" id="lights">
             <div class="Bulb"></div>
         </div>
 
         <div class="Control-panel">
-            <button onclick="turnOnLights()" class="Control-panel__button Control-panel__button_circled">ON</button>
-            <button onclick="turnOffLights()" class="Control-panel__button Control-panel__button_circled">OFF</button>
-            <button onclick="openSettingsBar()" class="Control-panel__button Control-panel__button_settings">SETTINGS</button>
+            <button 
+                class="Control-panel__Button Control-panel__Button_circled" 
+                onclick="turnOnBulbs()"
+            >ON</button>
+
+            <button class="Control-panel__Button Control-panel__Button_circled" 
+                onclick="turnOffBulbs()"
+            >OFF</button>
+
+            <button class="Control-panel__Button Control-panel__Button_settings" 
+                onclick="openSettingsBar()"
+            >SETTINGS</button>
             
-            <div class="Control-panel__setting-bar">
+            <div class="Setting-bar">
                 
                 <table>
                     <tr>
                         <td>Shape:</td>
-                        <td class="Control-panel__setting-bar_shape">
+                        <td class="Setting-bar__Shape">
                             <input type='radio' id="oval" name="shape" checked>
                             <label for="oval">oval</label>
 
@@ -37,7 +46,7 @@
                     </tr>
                     <tr>
                         <td>Color:</td>
-                        <td class="Control-panel__setting-bar_color">
+                        <td class="Setting-bar__Color">
                             <input type='radio' id="basic" name="color">
                             <label for="basic"><img src="images/basic.jpeg"></label>
 
@@ -50,7 +59,7 @@
                     </tr>
                     <tr>
                         <td>Mode:</td>
-                        <td class="Control-panel__setting-bar_mode">
+                        <td class="Setting-bar__Mode">
                             <input type='radio' id="two_by_two" name="mode" checked>
                             <label for="two_by_two">two by two</label>
 
@@ -60,20 +69,22 @@
                     </tr>
                     <tr>
                         <td>Speed:</td>
-                        <td class="Control-panel__setting-bar_speed">
-                            <input type='radio' id="speed1" name="speed">
-                            <label for="speed1">1</label>
+                        <td class="Setting-bar__Speed">
+                            <input type='radio' id="1" name="speed">
+                            <label for="1">1</label>
 
-                            <input type='radio' id="speed2" name="speed" checked>
-                            <label for="speed2">2</label>
+                            <input type='radio' id="2" name="speed" checked>
+                            <label for="2">2</label>
 
-                            <input type='radio' id="speed3" name="speed">
-                            <label for="speed3">3</label>
+                            <input type='radio' id="3" name="speed">
+                            <label for="3">3</label>
                         </td>
                     </tr>
                 </table>
                 
-                <button onclick="closeSettingsBar()" class="Control-panel__button Control-panel__setting-bar_close-button">CLOSE</button>
+                <button class="Control-panel__Button Setting-bar__Close-button" 
+                    onclick="closeSettingsBar()"
+                >CLOSE</button>
             </div>
         </div>
         <script src='script.js'></script> 

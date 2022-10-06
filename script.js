@@ -1,75 +1,84 @@
 
 // Creating bulbs due to the length of the window
 const windowWidth = document.documentElement.clientWidth;
-const bulbWidth = parseInt(window.getComputedStyle(document.getElementsByClassName('Bulb')[0]).width);
-const wireWidth = parseInt(window.getComputedStyle(document.getElementsByClassName('Bulb')[0]).marginRight);
+const bulbWidth = parseInt(window.getComputedStyle(getElementByClassName('Bulb')).width);
+const wireWidth = parseInt(window.getComputedStyle(getElementByClassName('Bulb')).marginRight);
 const numberOfLamps = Math.floor(windowWidth / (bulbWidth + wireWidth)) - 1;
 
-for (let i=0; i <= numberOfLamps; i++) {
+for (let i = 0; i <= numberOfLamps; i++) {
     const bulb = document.createElement('div');
     bulb.classList.add('Bulb');
-    document.getElementsByClassName('Lights')[0].append(bulb);
+    getElementByClassName('Bulbs').append(bulb);
 }
 
 
-
-//Functions to turn on and turn off lights
-function turnOnLights() {
-    if(basicColorPalette.checked) turnOnBasicLights();
-    if(brightColorPalette.checked) turnOnBrightLights();
-    if(violetColorPalette.checked) turnOnVioletLights();
+//Functions to turn on and turn off Bulbs
+function turnOnBulbs() {
+    let colorButtons = Array.from(document.getElementsByName('color'));
+    colorButtons.forEach((button) => {
+        if (button.checked) turnOnLightsByColor(button.id);
+    });
 }
 
-function turnOffLights() {
-    bulbs.forEach((bulb) => bulb.classList.remove('Bulb__glow'));
-    bulbs.forEach((bulb) => bulb.style.background = '#00a572');
-    bulbs.forEach((bulb) => bulb.style.color = '#00a572');
+function turnOffBulbs() {
+    bulbs.forEach((bulb) => {
+        bulb.classList.remove('Bulb__Glow');
+        bulb.style.background = '#00a572';
+        bulb.style.color = '#00a572';
+    })   
 }
 
 
 
 // Funtions for opening and closing setting bar
 function openSettingsBar() {
-    document.getElementsByClassName('Control-panel__button_settings')[0].style.display = 'none';
-    document.getElementsByClassName('Control-panel__setting-bar')[0].style.display = 'block';
+    getElementByClassName('Control-panel__Button_settings').style.display = 'none';
+    getElementByClassName('Setting-bar').style.display = 'block';
 }
 
 function closeSettingsBar() {
-    document.getElementsByClassName('Control-panel__button_settings')[0].style.display = 'block';
-    document.getElementsByClassName('Control-panel__setting-bar')[0].style.display = 'none';
+    getElementByClassName('Control-panel__Button_settings').style.display = 'block';
+    getElementByClassName('Setting-bar').style.display = 'none';
 }
 
 
 
 //Changing the shape of bulbs 
-const shapeChangingPanel = document.getElementsByClassName('Control-panel__setting-bar_shape')[0];
+const shapeChangingPanel = getElementByClassName('Setting-bar__Shape');
 
-shapeChangingPanel.onclick = function(event) {
-    const shapeButton = event.target.closest('label');
-    if(!shapeButton) return;
+shapeChangingPanel.onclick = (event) => {
+    const clickedShapeButton = event.target.closest('label');
+    if (!clickedShapeButton) return;
 
-    changeShape(shapeButton);
+    changeShape(clickedShapeButton);
 }
 
 function changeShape(clickedButton) {
-    if(clickedButton.innerHTML == 'circle') {
-        bulbs.forEach(function (bulb) {
-            bulb.classList.remove('Bulb__square', 'Bulb__oval');
-            bulb.classList.add('Bulb__circle');
-        });
-    }
+    switch (clickedButton.innerHTML) {
+        case ('circle'): {
+            bulbs.forEach((bulb) => {
+                bulb.classList.remove('Bulb__Square', 'Bulb__Oval');
+                bulb.classList.add('Bulb__Circle');
+            });
+        }
+        break;
 
-    if(clickedButton.innerHTML == 'square') {
-        bulbs.forEach(function (bulb) {
-            bulb.classList.remove('Bulb__circle', 'Bulb__oval');
-            bulb.classList.add('Bulb__square');
-        });
-    }
+        case ('square'): {
+            bulbs.forEach((bulb) => {
+                bulb.classList.remove('Bulb__Circle', 'Bulb__Oval');
+                bulb.classList.add('Bulb__Square');
+            });
+        }
+        break;
 
-    if(clickedButton.innerHTML == 'oval') {
-        bulbs.forEach(function (bulb) {
-            bulb.classList.remove('Bulb__square', 'Bulb__circle');
-        });
+        case ('oval'): {
+            bulbs.forEach((bulb) => {
+                bulb.classList.remove('Bulb__Square', 'Bulb__Circle');
+            });
+        }
+        break;
+
+        default: return;
     }
 }
 
@@ -78,245 +87,165 @@ function changeShape(clickedButton) {
 //Changing the color palette
 const bulbs = Array.from(document.getElementsByClassName('Bulb'));
 
-const FirstBulbsAll = Array.from(document.querySelectorAll('#lights :nth-child(4n+1)'));
-const SecondBulbsAll = Array.from(document.querySelectorAll('#lights :nth-child(4n-2)'));
-const ThirdBulbsAll = Array.from(document.querySelectorAll('#lights :nth-child(4n+3)'));
-const FourthBulbsAll = Array.from(document.querySelectorAll('#lights :nth-child(4n+4)'));
-
-const basicColorPalette = document.getElementById('basic');
-const brightColorPalette = document.getElementById('bright');
-const violetColorPalette = document.getElementById('violet');
-
-const colorChangingPanel = document.getElementsByClassName('Control-panel__setting-bar_color')[0];
-colorChangingPanel.onclick = function(event) {
+const colorChangingPanel = getElementByClassName('Setting-bar__Color');
+colorChangingPanel.onclick = (event) => {
     const colorButton = event.target.closest('input');
-    if(!colorButton) return;
+    if (!colorButton) return;
 
-    changeColorPalette(colorButton);
+    turnOnLightsByColor(colorButton.id);
 }
-
-function changeColorPalette(clickedButton) {
-    let id = clickedButton.id;
-    switch (id) {
-        case ('bright'): turnOnBrightLights();
-        break;
-
-        case ('violet'): turnOnVioletLights();
-        break;
-
-        default: turnOnBasicLights();
-    }
-}
-
 
 
 //Changing the glowing mode
-let mode = 'twoBytwo';
+let mode = 'two_by_two';
 let speed = '2';
 
-const modeChangingPanel = document.getElementsByClassName('Control-panel__setting-bar_mode')[0];
-modeChangingPanel.onclick = function(event) {
+const modeChangingPanel = getElementByClassName('Setting-bar__Mode');
+modeChangingPanel.onclick = (event) => {
     const modeButton = event.target.closest('input');
-    if(!modeButton) return;
+    if (!modeButton) return;
 
-    changeMode(modeButton);
+    changeMode(modeButton, speed);
 }
 
-function changeMode(clickedButton) {
-    if(clickedButton.id == 'one_by_one') {
-        if(speed == '1') onModeOnebyOneSpeed1();
-        if(speed == '2') onModeOnebyOneSpeed2();
-        if(speed == '3') onModeOnebyOneSpeed3();
-        mode = 'oneByone';
-    }
-    if(clickedButton.id == 'two_by_two') {
-        if(speed == '1') onModeTwobyTwoSpeed1();
-        if(speed == '2') onModeTwobyTwoSpeed2();
-        if(speed == '3') onModeTwobyTwoSpeed3();
-        mode = 'twoBytwo';
-    }
+function changeMode(clickedButton, selectedSpeed) {
+    (clickedButton.id === 'one_by_one') ? onModeOnebyOneBySpeed(selectedSpeed) : onModeTwobyTwoBySpeed(selectedSpeed);
+    mode = clickedButton.id;
 }
-
 
 
 //Changing the speed
-const speedChangingPanel = document.getElementsByClassName('Control-panel__setting-bar_speed')[0];
-speedChangingPanel.onclick = function(event) {
+const speedChangingPanel = getElementByClassName('Setting-bar__Speed');
+speedChangingPanel.onclick = (event) => {
     const speedButton = event.target.closest('input');
-    if(!speedButton) return;
+    if (!speedButton) return;
 
-    changeSpeed(speedButton);
+    changeSpeed(speedButton, mode);
 }
 
-function changeSpeed(clickedButton) {
-    let speedId = clickedButton.id;
-    switch (speedId) {
-        case ('speed1'): 
-            if (mode == 'oneByone') onModeOnebyOneSpeed1();
-            if (mode == 'twoBytwo') onModeTwobyTwoSpeed1();
-            speed = '1';   
-        break;
+function changeSpeed(clickedButton, selectedMode) {
+    (selectedMode === 'one_by_one') ? onModeOnebyOneBySpeed(clickedButton.id) : onModeTwobyTwoBySpeed(clickedButton.id);
+    speed = clickedButton.id;
+}
 
-        case ('speed3'): 
-            if (mode == 'oneByone') onModeOnebyOneSpeed3();
-            if (mode == 'twoBytwo') onModeTwobyTwoSpeed3();
-            speed = '3';  
-        break;
 
-        default: 
-            if (mode == 'oneByone') onModeOnebyOneSpeed2();
-            if (mode == 'twoBytwo') onModeTwobyTwoSpeed2();
-            speed = '2';  
+function getElementByClassName(className) {
+    return document.getElementsByClassName(className)[0];
+}
+
+//function for changing color
+function turnOnLightsByColor(clickedColorPallete) {
+    bulbs.forEach((bulb, index) => {
+        bulb.classList.add('Bulb__Glow');
+        if (((index + 1) % 4) === 0) {
+            bulb.style.background = colorPalette[clickedColorPallete].fourthColor;
+            bulb.style.color = colorPalette[clickedColorPallete].fourthColor;
+            bulb.classList.add('Bulb__Fourth');
+        } else if (((index + 1) % 4) === 3) {
+            bulb.style.background = colorPalette[clickedColorPallete].thirdColor;
+            bulb.style.color = colorPalette[clickedColorPallete].thirdColor;
+            bulb.classList.add('Bulb__Third');
+        } else if (((index + 1) % 4) === 2) {
+            bulb.style.background = colorPalette[clickedColorPallete].secondColor;
+            bulb.style.color = colorPalette[clickedColorPallete].secondColor;
+            bulb.classList.add('Bulb__Second');
+        } else if (((index + 1) % 4) === 1) {
+            bulb.style.background = colorPalette[clickedColorPallete].firstColor;
+            bulb.style.color = colorPalette[clickedColorPallete].firstColor;
+            bulb.classList.add('Bulb__First');
+        }
+    })
+}
+
+
+//Functions for changing mode due to the speed
+function onModeOnebyOneBySpeed(clickedSpeed) {
+    
+    bulbs.forEach((bulb, index) => {
+        bulb.style.animationDuration = OneByOneSettingsBySpeed[clickedSpeed].bulbsDuration;
+        if (((index + 1) % 4) === 0) bulb.style.animationDelay = OneByOneSettingsBySpeed[clickedSpeed].fourthBulbsAllDelay;
+        else if (((index + 1) % 4) === 3) bulb.style.animationDelay = OneByOneSettingsBySpeed[clickedSpeed].thirdBulbsAllDelay;
+        else if (((index + 1) % 4) === 2) bulb.style.animationDelay = OneByOneSettingsBySpeed[clickedSpeed].secondBulbsAllDelay;
+        else if (((index + 1) % 4) === 1) bulb.style.animationDelay = OneByOneSettingsBySpeed[clickedSpeed].firstBulbsAllDelay;
+    });
+}
+
+function onModeTwobyTwoBySpeed(clickedSpeed) {
+    bulbs.forEach((bulb, index) => {
+        bulb.style.animationDuration = TwobyTwoSettingsBySpeed[clickedSpeed].bulbsDuration;
+        if (((index + 1) % 2 === 0)) bulb.style.animationDelay = TwobyTwoSettingsBySpeed[clickedSpeed].evenBulbsDelay;
+        else bulb.style.animationDelay = TwobyTwoSettingsBySpeed[clickedSpeed].oddBulbsDelay;
+    });
+}
+
+
+//data
+const colorPalette = {
+    basic: {
+        firstColor: '#E3170AFF',
+        secondColor: '#A9E5BBFF',
+        thirdColor: '#FCF6B1FF',
+        fourthColor: '#F7B32BFF',
+    },
+
+    violet: {
+        firstColor: '#ffc36d',
+        secondColor:'#fe6f9b',
+        thirdColor: '#c64ab3',
+        fourthColor: '#7b50b9',
+    },
+
+    bright: {
+        firstColor: '#26dfd0',
+        secondColor: '#b8ee30',
+        thirdColor: '#f62aa0',
+        fourthColor: '#f9d030',
+    },
+};
+
+const OneByOneSettingsBySpeed = {
+    1: {
+        bulbsDuration: '5s',
+        firstBulbsAllDelay: '0s',
+        secondBulbsAllDelay: '3s',
+        thirdBulbsAllDelay: '4s',
+        fourthBulbsAllDelay: '6s',
+    }, 
+
+    2: {
+        bulbsDuration: '4s',
+        firstBulbsAllDelay: '0s',
+        secondBulbsAllDelay: '2s',
+        thirdBulbsAllDelay: '4s',
+        fourthBulbsAllDelay: '5s',
+    },
+
+    3: {
+        bulbsDuration: '3s',
+        firstBulbsAllDelay: '0s',
+        secondBulbsAllDelay: '1s',
+        thirdBulbsAllDelay: '2s',
+        fourthBulbsAllDelay: '3s',
+    }
+
+}
+
+const TwobyTwoSettingsBySpeed = {
+    1: {
+        bulbsDuration: '3s',
+        evenBulbsDelay: '3s',
+        oddBulbsDelay: '0s',
+    }, 
+
+    2: {
+        bulbsDuration: '2s',
+        evenBulbsDelay: '2s',
+        oddBulbsDelay: '0s',
+    },
+
+    3: {
+        bulbsDuration: '1s',
+        evenBulbsDelay: '1s',
+        oddBulbsDelay: '0s',
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Functions of different color Palette
-function turnOnBasicLights() {
-    FirstBulbsAll.forEach((bulb) => {
-        bulb.classList.add('Bulb__glow', 'Bulb__first');
-        bulb.style.background = '#E3170AFF';
-        bulb.style.color = '#E3170AFF';
-    });
-    
-    SecondBulbsAll.forEach((bulb) => {
-        bulb.classList.add('Bulb__glow', 'Bulb__second');
-        bulb.style.background = '#A9E5BBFF';
-        bulb.style.color = '#A9E5BBFF';
-    });
-    
-    ThirdBulbsAll.forEach((bulb) => {
-        bulb.classList.add('Bulb__glow', 'Bulb__third');
-        bulb.style.background = '#FCF6B1FF';
-        bulb.style.color = '#FCF6B1FF';
-    });
-    
-    FourthBulbsAll.forEach((bulb) => {
-        bulb.classList.add('Bulb__glow', 'Bulb__fourth');
-        bulb.style.background = '#F7B32BFF';
-        bulb.style.color = '#F7B32BFF';
-    });
-}
-    
-function turnOnBrightLights() {
-    FirstBulbsAll.forEach((bulb) => {
-        bulb.classList.add('Bulb__glow', 'Bulb__first');
-        bulb.style.background = '#26dfd0';
-        bulb.style.color = '#26dfd0';
-    });
-    
-    SecondBulbsAll.forEach((bulb) => {
-        bulb.classList.add('Bulb__glow', 'Bulb__second');
-        bulb.style.background = '#b8ee30';
-        bulb.style.color = '#b8ee30';
-    });
-    
-    ThirdBulbsAll.forEach((bulb) => {
-        bulb.classList.add('Bulb__glow', 'Bulb__third');
-        bulb.style.background = '#f62aa0';
-        bulb.style.color = '#f62aa0';
-    });
-    
-    FourthBulbsAll.forEach((bulb) => {
-        bulb.classList.add('Bulb__glow', 'Bulb__fourth');
-        bulb.style.background = '#f9d030';
-        bulb.style.color = '#f9d030';
-    });
-}
-    
-function turnOnVioletLights() {
-    FirstBulbsAll.forEach((bulb) => {
-        bulb.classList.add('Bulb__glow', 'Bulb__first');
-        bulb.style.background = '#ffc36d';
-        bulb.style.color = '#ffc36d';
-    });
-    
-    SecondBulbsAll.forEach((bulb) => {
-        bulb.classList.add('Bulb__glow', 'Bulb__second');
-        bulb.style.background = '#fe6f9b';
-        bulb.style.color = '#fe6f9b';
-    });
-    
-    ThirdBulbsAll.forEach((bulb) => {
-        bulb.classList.add('Bulb__glow', 'Bulb__third');
-        bulb.style.background = '#c64ab3';
-        bulb.style.color = '#c64ab3';
-    });
-    
-    FourthBulbsAll.forEach((bulb) => {
-        bulb.classList.add('Bulb__glow', 'Bulb__fourth');
-        bulb.style.background = '#7b50b9';
-        bulb.style.color = '#7b50b9';
-    });
-}
-
-
-
-//Functions of different speed
-function onModeOnebyOneSpeed1() {
-    bulbs.forEach((bulb) => bulb.style.animationDuration = '5s');
-    SecondBulbsAll.forEach((bulb) => bulb.style.animationDelay = '3s');
-    ThirdBulbsAll.forEach((bulb) => bulb.style.animationDelay = '4s');
-    FourthBulbsAll.forEach((bulb) => bulb.style.animationDelay = '6s');
-};
-
-function onModeOnebyOneSpeed2() {
-    bulbs.forEach((bulb) => bulb.style.animationDuration = '4s');
-    SecondBulbsAll.forEach((bulb) => bulb.style.animationDelay = '2s');
-    ThirdBulbsAll.forEach((bulb) => bulb.style.animationDelay = '4s');
-    FourthBulbsAll.forEach((bulb) => bulb.style.animationDelay = '5s');
-};
-
-function onModeOnebyOneSpeed3() {
-    bulbs.forEach((bulb) => bulb.style.animationDuration = '3s');
-    SecondBulbsAll.forEach((bulb) => bulb.style.animationDelay = '1s');
-    ThirdBulbsAll.forEach((bulb) => bulb.style.animationDelay = '2s');
-    FourthBulbsAll.forEach((bulb) => bulb.style.animationDelay = '3s');
-};
-
-function onModeTwobyTwoSpeed1() {
-    bulbs.forEach((bulb) => bulb.style.animationDuration = '3s');
-    SecondBulbsAll.forEach((bulb) => bulb.style.animationDelay = '3s');
-    ThirdBulbsAll.forEach((bulb) => bulb.style.animationDelay = '0s');
-    FourthBulbsAll.forEach((bulb) => bulb.style.animationDelay = '3s');
-};
-
-function onModeTwobyTwoSpeed2() {
-    bulbs.forEach((bulb) => bulb.style.animationDuration = '2s');
-    SecondBulbsAll.forEach((bulb) => bulb.style.animationDelay = '2s');
-    ThirdBulbsAll.forEach((bulb) => bulb.style.animationDelay = '0s');
-    FourthBulbsAll.forEach((bulb) => bulb.style.animationDelay = '2s');
-};
-
-function onModeTwobyTwoSpeed3() {
-    bulbs.forEach((bulb) => bulb.style.animationDuration = '1s');
-    SecondBulbsAll.forEach((bulb) => bulb.style.animationDelay = '1s');
-    ThirdBulbsAll.forEach((bulb) => bulb.style.animationDelay = '0s');
-    FourthBulbsAll.forEach((bulb) => bulb.style.animationDelay = '1s');
-};

@@ -10,7 +10,7 @@ body {
   justify-content: center;
 }
 
-.Lights {
+.Bulbs {
   position: fixed;
   display: flex;
   justify-content: center;
@@ -27,6 +27,12 @@ body {
   height: 40px;
   margin: 10px 20px 0px 25px;
   border-radius: 50%;
+}
+@media screen and (max-width: 499px) {
+  .Bulb {
+    width: 10px;
+    height: 30px;
+  }
 }
 .Bulb::before {
   content: "";
@@ -55,37 +61,49 @@ body {
 .Bulb:last-child::after {
   width: 0px;
 }
-.Bulb__circle {
+.Bulb__Circle {
   margin: 10px 25px 0px 0px;
   width: 30px;
   height: 30px;
   border-radius: 50%;
 }
-.Bulb__square {
+@media screen and (max-width: 499px) {
+  .Bulb__Circle {
+    width: 20px;
+    height: 20px;
+  }
+}
+.Bulb__Square {
   width: 10px;
   height: 20px;
   margin: 10px 20px 0px 35px;
   border-radius: 5px;
 }
-.Bulb__glow {
+@media screen and (max-width: 499px) {
+  .Bulb__Square {
+    width: 7px;
+    height: 15px;
+  }
+}
+.Bulb__Glow {
   opacity: 0.1;
   box-shadow: 1px 3px 10px, -1px 3px 10px;
   -webkit-animation: bulb-pulse linear 2s infinite alternate;
           animation: bulb-pulse linear 2s infinite alternate;
 }
-.Bulb__first {
+.Bulb__First {
   -webkit-animation-delay: 0s;
           animation-delay: 0s;
 }
-.Bulb__second {
+.Bulb__Second {
   -webkit-animation-delay: 2s;
           animation-delay: 2s;
 }
-.Bulb__third {
+.Bulb__Third {
   -webkit-animation-delay: 0s;
           animation-delay: 0s;
 }
-.Bulb__fourth {
+.Bulb__Fourth {
   -webkit-animation-delay: 2s;
           animation-delay: 2s;
 }
@@ -95,32 +113,33 @@ body {
   position: absolute;
   top: 60%;
 }
-.Control-panel__button {
+.Control-panel__Button {
   font-size: 15px;
   color: white;
   background: transparent;
   border: solid 1px #00a572;
   cursor: pointer;
 }
-.Control-panel__button:hover {
+.Control-panel__Button:hover {
   box-shadow: 0px 0px 5px #4cc09c;
 }
-.Control-panel__button_circled {
+.Control-panel__Button_circled {
   width: 45px;
   height: 45px;
   border-radius: 50%;
 }
-.Control-panel__button:first-child {
+.Control-panel__Button:first-child {
   margin-right: 5px;
 }
-.Control-panel__button_settings {
+.Control-panel__Button_settings {
   display: block;
   margin-left: 10px;
   width: 100px;
   height: 40px;
   border-radius: 10px;
 }
-.Control-panel__setting-bar {
+
+.Setting-bar {
   display: none;
   margin-left: 10px;
   padding: 5px;
@@ -129,39 +148,39 @@ body {
   font-size: 15px;
   color: white;
 }
-.Control-panel__setting-bar td:first-child {
+.Setting-bar td:first-child {
   padding-right: 15px;
   font-size: 1.2em;
 }
-.Control-panel__setting-bar input[type=radio] {
+.Setting-bar input[type=radio] {
   position: fixed;
   width: 0;
   margin: 0px;
   opacity: 0;
   cursor: pointer;
 }
-.Control-panel__setting-bar input[type=radio]:checked + label {
+.Setting-bar input[type=radio]:checked + label {
   border: solid 1px #00a572;
 }
-.Control-panel__setting-bar label {
+.Setting-bar label {
   display: inline-block;
   cursor: pointer;
   background: transparent;
 }
-.Control-panel__setting-bar_shape label, .Control-panel__setting-bar_mode label, .Control-panel__setting-bar_speed label {
+.Setting-bar__Shape label, .Setting-bar__Mode label, .Setting-bar__Speed label {
   padding: 0px 5px;
   border-radius: 5px;
 }
-.Control-panel__setting-bar_color label {
+.Setting-bar__Color label {
   border-radius: 4px;
 }
-.Control-panel__setting-bar_color label img {
+.Setting-bar__Color label img {
   display: block;
   width: 45px;
   height: 15px;
   border-radius: 3px;
 }
-.Control-panel__setting-bar_close-button {
+.Setting-bar__Close-button {
   margin-top: 10px;
   border-radius: 5px;
   float: right;

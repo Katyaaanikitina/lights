@@ -10,7 +10,7 @@ body
     display: flex
     justify-content: center
 
-.Lights 
+.Bulbs
     position: fixed
     display: flex
     justify-content: center
@@ -26,6 +26,10 @@ body
     height: 40px
     margin: 10px 20px 0px 25px
     border-radius: 50%
+
+    @media screen and (max-width: 499px)
+        width: 10px
+        height: 30px
 
     &::before 
         content: ''
@@ -54,33 +58,41 @@ body
     &:last-child::after 
         width: 0px
         
-    &__circle 
+    &__Circle 
         margin: 10px 25px 0px 0px
         width: 30px
         height: 30px
         border-radius: 50%
+
+        @media screen and (max-width: 499px)
+            width: 20px
+            height: 20px
     
-    &__square 
+    &__Square 
         width: 10px
         height: 20px
         margin: 10px 20px 0px 35px
         border-radius: 5px
 
-    &__glow
+        @media screen and (max-width: 499px)
+            width: 7px
+            height: 15px
+
+    &__Glow
         opacity: 0.1
         box-shadow: 1px 3px 10px, -1px 3px 10px
         animation: bulb-pulse linear 2s infinite alternate
 
-    &__first 
+    &__First 
         animation-delay: 0s
 
-    &__second 
+    &__Second 
         animation-delay: 2s
 
-    &__third 
+    &__Third 
         animation-delay: 0s
 
-    &__fourth 
+    &__Fourth 
         animation-delay: 2s
 
 .Control-panel 
@@ -88,7 +100,7 @@ body
     position: absolute
     top: 60%
 
-    &__button 
+    &__Button 
         font-size: 15px
         color: white
         background: transparent
@@ -113,55 +125,55 @@ body
             height: 40px
             border-radius: 10px
 
-    &__setting-bar 
-        display: none
-        margin-left: 10px
-        padding: 5px
-        border: solid 1px $topic-color
-        border-radius: 10px
-        font-size: 15px
-        color: white
+.Setting-bar 
+    display: none
+    margin-left: 10px
+    padding: 5px
+    border: solid 1px $topic-color
+    border-radius: 10px
+    font-size: 15px
+    color: white
 
-        td:first-child 
-            padding-right: 15px
-            font-size: 1.2em
+    td:first-child 
+        padding-right: 15px
+        font-size: 1.2em
 
-        input[type="radio"] 
-            position: fixed
-            width: 0
-            margin: 0px
-            opacity: 0
-            cursor: pointer
+    input[type="radio"] 
+        position: fixed
+        width: 0
+        margin: 0px
+        opacity: 0
+        cursor: pointer
             
-            &:checked + label 
-                border: solid 1px $topic-color
+        &:checked + label 
+            border: solid 1px $topic-color
 
+    label 
+        display: inline-block
+        cursor: pointer
+        background: transparent
+
+    &__Shape,
+    &__Mode,
+    &__Speed
         label 
-            display: inline-block
-            cursor: pointer
-            background: transparent
-
-        &_shape,
-        &_mode,
-        &_speed
-            label 
-                padding: 0px 5px
-                border-radius: 5px
-
-        &_color 
-            label 
-                border-radius: 4px
-
-                img 
-                    display: block
-                    width: 45px
-                    height: 15px
-                    border-radius: 3px
-
-        &_close-button 
-            margin-top: 10px
+            padding: 0px 5px
             border-radius: 5px
-            float: right
+
+    &__Color 
+        label 
+            border-radius: 4px
+
+            img 
+                display: block
+                width: 45px
+                height: 15px
+                border-radius: 3px
+
+    &__Close-button 
+        margin-top: 10px
+        border-radius: 5px
+        float: right
     
 
 @keyframes bulb-pulse 
