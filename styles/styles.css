@@ -115,6 +115,8 @@ body {
 }
 .Control-panel__Button {
   font-size: 15px;
+  margin-left: auto;
+  margin-right: auto;
   color: white;
   background: transparent;
   border: solid 1px #00a572;
@@ -148,6 +150,11 @@ body {
   font-size: 15px;
   color: white;
 }
+@media screen and (max-width: 499px) {
+  .Setting-bar {
+    font-size: 10px;
+  }
+}
 .Setting-bar td:first-child {
   padding-right: 15px;
   font-size: 1.2em;
@@ -179,6 +186,12 @@ body {
   width: 45px;
   height: 15px;
   border-radius: 3px;
+}
+@media screen and (max-width: 499px) {
+  .Setting-bar__Color label img {
+    width: 30px;
+    height: 10px;
+  }
 }
 .Setting-bar__Close-button {
   margin-top: 10px;
