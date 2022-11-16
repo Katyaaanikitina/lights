@@ -87,7 +87,7 @@ body {
 }
 .Bulb__Glow {
   opacity: 0.1;
-  box-shadow: 1px 3px 10px, -1px 3px 10px;
+  box-shadow: 0px 0px 5px;
   -webkit-animation: bulb-pulse linear 2s infinite alternate;
   animation: bulb-pulse linear 2s infinite alternate;
 }
@@ -199,7 +199,8 @@ body {
   }
   100% {
     opacity: 1;
-    box-shadow: 1px 3px 10px, -1px 3px 10px;
+    color: #fafad2;
+    box-shadow: 0px 0px 5px;
   }
 }
 
@@ -210,6 +211,7 @@ body {
   }
   100% {
     opacity: 1;
-    box-shadow: 1px 3px 10px, -1px 3px 10px;
+    color: #fafad2;
+    box-shadow: 0px 0px 5px;
   }
 }/*# sourceMappingURL=styles.css.map */

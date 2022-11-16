@@ -134,26 +134,25 @@ function getElementByClassName(className) {
 
 //function for changing color
 function turnOnLightsByColor(clickedColorPallete) {
-    turnOffBulbs();
     bulbs.forEach((bulb, index) => {
+        bulb.classList.add('Bulb__Glow');
         if (((index + 1) % 4) === 0) {
             bulb.style.background = colorPalette[clickedColorPallete].fourthColor;
-            bulb.style.color = colorPalette[clickedColorPallete].fourthColor;
+            // bulb.style.color = colorPalette[clickedColorPallete].fourthColor;
             bulb.classList.add('Bulb__Fourth');
         } else if (((index + 1) % 4) === 3) {
             bulb.style.background = colorPalette[clickedColorPallete].thirdColor;
-            bulb.style.color = colorPalette[clickedColorPallete].thirdColor;
+            // bulb.style.color = colorPalette[clickedColorPallete].thirdColor;
             bulb.classList.add('Bulb__Third');
         } else if (((index + 1) % 4) === 2) {
             bulb.style.background = colorPalette[clickedColorPallete].secondColor;
-            bulb.style.color = colorPalette[clickedColorPallete].secondColor;
+            // bulb.style.color = colorPalette[clickedColorPallete].secondColor;
             bulb.classList.add('Bulb__Second');
         } else if (((index + 1) % 4) === 1) {
             bulb.style.background = colorPalette[clickedColorPallete].firstColor;
-            bulb.style.color = colorPalette[clickedColorPallete].firstColor;
+            // bulb.style.color = colorPalette[clickedColorPallete].firstColor;
             bulb.classList.add('Bulb__First');
         }
-        bulb.classList.add('Bulb__Glow');
     })
 }
 
