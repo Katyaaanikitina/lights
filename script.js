@@ -134,6 +134,7 @@ function getElementByClassName(className) {
 
 //function for changing color
 function turnOnLightsByColor(clickedColorPallete) {
+    turnOffBulbs();
     bulbs.forEach((bulb, index) => {
         if (((index + 1) % 4) === 0) {
             bulb.style.background = colorPalette[clickedColorPallete].fourthColor;
