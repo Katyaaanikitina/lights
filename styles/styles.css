@@ -149,6 +149,11 @@ body {
   font-size: 15px;
   color: white;
 }
+@media screen and (max-width: 499px) {
+  .Setting-bar {
+    font-size: 12px;
+  }
+}
 .Setting-bar td:first-child {
   padding-right: 15px;
   font-size: 1.2em;

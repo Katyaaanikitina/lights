@@ -24,7 +24,6 @@ function turnOffBulbs() {
     bulbs.forEach((bulb) => {
         bulb.classList.remove('Bulb__Glow');
         bulb.style.background = '#00a572';
-        bulb.style.color = '#00a572';
     })   
 }
 
@@ -136,7 +135,6 @@ function getElementByClassName(className) {
 //function for changing color
 function turnOnLightsByColor(clickedColorPallete) {
     bulbs.forEach((bulb, index) => {
-        bulb.classList.add('Bulb__Glow');
         if (((index + 1) % 4) === 0) {
             bulb.style.background = colorPalette[clickedColorPallete].fourthColor;
             bulb.style.color = colorPalette[clickedColorPallete].fourthColor;
@@ -154,6 +152,7 @@ function turnOnLightsByColor(clickedColorPallete) {
             bulb.style.color = colorPalette[clickedColorPallete].firstColor;
             bulb.classList.add('Bulb__First');
         }
+        bulb.classList.add('Bulb__Glow');
     })
 }
 
