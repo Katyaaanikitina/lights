@@ -15,7 +15,7 @@ Free web embellishment to jazz up your application for holidays and bring christ
 4.Then in file 'script.js' choose the parts of the code that correspond to the chosen features <br/>
 5.Delete parts of the code which stand for shapes, color palettes, modes that you won't use  <br/>
 6.Delete settings bar from the html <br/>
-6.Add formed christmas lights to your application and enjoy holidays!
+7.Add formed christmas lights to your application and enjoy holidays!
 
 ## Bugs and Issues
 Found a bug or an issue with this template? Please, feel free to contact me. You can find my contact info on my page.
